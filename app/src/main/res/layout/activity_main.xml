@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/clouds"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/accounticon" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -29,19 +29,19 @@
         android:padding="12dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="#ffffff"
         android:ems="10"
         android:hint="@string/tPassword"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:padding="12dp"
-        android:importantForAutofill="no"/>
+        android:padding="12dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bsingnin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -50,6 +50,14 @@
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:text="@string/bsignin"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="#2B2B2B" />
 
 </LinearLayout>
