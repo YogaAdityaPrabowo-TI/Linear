@@ -4,4 +4,8 @@
     <string name="tPassword">Password</string>
     <string name="bsignin">Sign-In</string>
     <string name="output">hasil</string>
+    <string name="tdata">Data Anda</string>
+    <string name="txEmail">ini hasil email</string>
+    <string name="txpassword">ini hasil password</string>
+    <string name="label2">Login Berhasil</string>
 </resources>

@@ -2,58 +2,73 @@ package com.example.linearlayoutyogaaditya;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText tEmail;
-    EditText tPassword;
-    TextView output;
-    Button bsignin;
-    String Email;
-    String Password;
 
-    @SuppressLint("WrongViewCast")
+    Button btnLogin;
+
+    EditText edemail, edpassword;
+
+    String nama, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tEmail = (EditText) findViewById(R.id.email);
-        tPassword = (EditText) findViewById(R.id.password);
-        bsignin = (Button) findViewById(R.id.bsingnin);
-        output= (TextView) findViewById(R.id.output);
+        btnLogin=findViewById(R.id.bsingnin);
 
-        bsignin.setOnClickListener(new View.OnClickListener() {
+        edemail=findViewById(R.id.email);
+
+        edpassword=findViewById(R.id.password);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Email = tEmail.getText().toString();
-                Password = tPassword.getText().toString();
+                nama = edemail.getText().toString();
+                password = edpassword.getText().toString();
+                String email = "admin@mail.com";
+                String pass = "123";
 
-                if(tEmail.getText().toString().equals("ayoga1284@mail.com")&&tPassword.getText().toString().equals("141000")) {
+                if(nama.isEmpty() || password.isEmpty()) {
                     Toast t = Toast.makeText(getApplicationContext(),
-                            "LOGIN SUKSES || email : " + Email + " password : " + Password + "", Toast.LENGTH_LONG);
+                            "Email & Password wajib diisi!",
+                            Toast.LENGTH_LONG);
                     t.show();
-                }
-                else if (!tEmail.getText().toString().equals("ayoga1284@mail.com")&&tPassword.getText().toString().equals("141000")) {
-                    Toast t = Toast.makeText(getApplicationContext(),
-                            " Email Anda salah ", Toast.LENGTH_SHORT);
-                    t.show();
-                }
-                else if (!tPassword.getText().toString().equals("123")&&tEmail.getText().toString().equals("admin@mail.com")) {
-                    Toast t = Toast.makeText(getApplicationContext(),
-                            " Password Anda salah ", Toast.LENGTH_SHORT);
-                    t.show();
-                }
-                else{
-                    Toast.makeText((getApplicationContext()), "Username atau Password Anda salah",
-                            Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    if (nama.equals(email) && password.equals(pass)) {
+                        Toast t = Toast.makeText(getApplicationContext(),
+                                "Login Sukses", Toast.LENGTH_LONG);
+                        t.show();
+
+                        Bundle b = new Bundle();
+
+                        b.putString("a", nama.trim());
+
+                        b.putString("b", password.trim());
+
+                        Intent i = new Intent(getApplicationContext(), activity_kedua.class);
+
+                        i.putExtras(b);
+
+                        startActivity(i);
+
+                    } else {
+                        Toast t = Toast.makeText(getApplicationContext(),
+                                "Login Gagal" , Toast.LENGTH_LONG);
+                        t.show();
+
+                    }
                 }
             }
         });
